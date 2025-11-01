@@ -32,10 +32,9 @@ phases:
       . ./build.env
       docker push "${REPO_URI}:${IMAGE_TAG}"
       docker push "${REPO_URI}:latest"
-      DIGEST=$(aws ecr describe-images --repository-name ${ECR_REPO} --image-ids imageTag=${IMAGE_TAG} --query 'imageDetails[0].imageDigest' --output text)
-      printf '[{"name":"%s","imageUri":"%s@%s"}]\n' "${CONTAINER_NAME}" "${REPO_URI}" "${DIGEST}" > imagedefinitions.json
+      printf '[{"name":"%s","imageUri":"%s"}]\n' "${CONTAINER_NAME}" "${REPO_URI}:${IMAGE_TAG}" > imagedefinitions.json
       cat imagedefinitions.json
-      
+
 artifacts:
   files:
     - imagedefinitions.json
