@@ -1,6 +1,6 @@
 # PHP 7.1 sample application
 
-Sample PHP applications that uses:
+Sample PHP applications that usessss:
 * Dependency Injection
 * Apache routing
 * Composer (aka: Not reinventing the wheel)
