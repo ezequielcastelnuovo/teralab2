@@ -53,7 +53,7 @@ Configuración Técnica
 -   Públicas: 10.0.1.0/24 (1a), 10.0.2.0/24 (1b)  
 -   Privadas: 10.0.3.0/24 (1a), 10.0.4.0/24 (1b)
 
-![Subnets](images/02-subnets.png)
+![Subnets](images/02-subnetsv2.png)
 -   Route tables
 ![RouteTables](images/03-routetables.png)
 -   Pública → 0.0.0.0/0 → igw-0f83d0bccf2145ab4
@@ -103,11 +103,13 @@ Configuración Técnica
 docker buildx build --platform linux/amd64 -f Dockerfile
 
   -t 979244568430.dkr.ecr.us-east-1.amazonaws.com/frontend-lab2:latest --push .
+
 ![BuildCommand1](images/06-commandbuildx-01.png)
 
 docker buildx build --platform linux/amd64 -f db/Dockerfile
 
   -t 979244568430.dkr.ecr.us-east-1.amazonaws.com/db-lab2:latest --push .
+
 ![BuildCommand2](images/07-commandbuildx-02.png)
 
 ### 4\. ECS --- Task Definitions
@@ -137,6 +139,8 @@ docker buildx build --platform linux/amd64 -f db/Dockerfile
 -   Mount:  /var/lib/mysql
 
 -   Logs: CloudWatch /ecs/mysql-task-dubai
+
+![TaskDefinitions](images/08-task-definitions.png)
 
 ### 5\. ECS --- Services & Placement
 
