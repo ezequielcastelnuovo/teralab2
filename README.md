@@ -46,6 +46,7 @@ Configuración Técnica
 ### 1\. Networking (VPC)
 
 -   VPC:  php-sample-vpc (vpc-0d0eed0237ec15bfc) -- CIDR 10.0.0.0/16 -- DNS hostnames/resolution: Enabled
+![VPC](images/01-VPC.png)
 
 -   Subnets
 
