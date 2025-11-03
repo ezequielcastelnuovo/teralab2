@@ -62,7 +62,7 @@ Configuración Técnica
 
 -   IGW & NAT
 
-### 2\. Security Groups (resumen efectivo)
+### 2\. Security Groups
 
 -   php-sample-alb-sg
 
@@ -87,6 +87,7 @@ Configuración Técnica
 -   Inbound: 2049/TCP  desde  php-sample-mysql-sg
 
 -   Outbound: All
+![SecurityGroups](images/04-securitygroups.png)
 
 ### 3\. ECR (repos & build)
 
@@ -95,12 +96,14 @@ Configuración Técnica
 -   frontend-lab2 → tags: latest, a5949eb (~1.46 GB)
 
 -   db-lab2 → tag: latest (~183 MB)
+![ECR](images/05-ecr.png)
 
--   Comandos (buildx, Mac ARM → linux/amd64)
+### Comandos (buildx, Mac ARM → linux/amd64)
 
 docker buildx build --platform linux/amd64 -f Dockerfile
 
   -t 979244568430.dkr.ecr.us-east-1.amazonaws.com/frontend-lab2:latest --push .
+
 
 docker buildx build --platform linux/amd64 -f db/Dockerfile
 
