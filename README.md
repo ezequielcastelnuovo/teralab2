@@ -48,12 +48,12 @@ Configuración Técnica
 -   VPC:  php-sample-vpc (vpc-0d0eed0237ec15bfc) -- CIDR 10.0.0.0/16 -- DNS hostnames/resolution: Enabled
 ![VPC](images/01-vpclab.png)
 
--   Subnets 
+###Subnets 
 
 -   Públicas: 10.0.1.0/24 (1a), 10.0.2.0/24 (1b)  
 -   Privadas: 10.0.3.0/24 (1a), 10.0.4.0/24 (1b)
 
-![Subnets](images/02-subnetsv2.png)
+![Subnets](images/02-subnetsv3.png)
 -   Route tables
 ![RouteTables](images/03-routetables.png)
 -   Pública → 0.0.0.0/0 → igw-0f83d0bccf2145ab4
