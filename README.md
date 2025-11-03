@@ -50,7 +50,8 @@ Configuración Técnica
 
 -   Subnets 
 
--   Públicas: 10.0.1.0/24 (1a), 10.0.2.0/24 (1b) / Privadas: 10.0.3.0/24 (1a), 10.0.4.0/24 (1b)
+-   Públicas: 10.0.1.0/24 (1a), 10.0.2.0/24 (1b)  
+-   Privadas: 10.0.3.0/24 (1a), 10.0.4.0/24 (1b)
 
 ![Subnets](images/02-subnets.png)
 -   Route tables
