@@ -53,9 +53,9 @@ Configuración Técnica
 -   Públicas: 10.0.1.0/24 (1a), 10.0.2.0/24 (1b)
 
 -   Privadas: 10.0.3.0/24 (1a), 10.0.4.0/24 (1b)
-
+![Subnets](images/02-subnets.png)
 -   Route tables
-
+![RouteTables](images/03-routetables.png)
 -   Pública → 0.0.0.0/0 → igw-0f83d0bccf2145ab4
 
 -   Privada → 0.0.0.0/0 → nat-0c5e14771a0068db1
