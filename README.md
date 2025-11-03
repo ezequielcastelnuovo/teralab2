@@ -48,7 +48,7 @@ Configuración Técnica
 -   VPC:  php-sample-vpc (vpc-0d0eed0237ec15bfc) -- CIDR 10.0.0.0/16 -- DNS hostnames/resolution: Enabled
 ![VPC](images/01-vpclab.png)
 
-###Subnets 
+### Subnets 
 
 -   Públicas: 10.0.1.0/24 (1a), 10.0.2.0/24 (1b)  
 -   Privadas: 10.0.3.0/24 (1a), 10.0.4.0/24 (1b)
@@ -164,6 +164,8 @@ docker buildx build --platform linux/amd64 -f db/Dockerfile
 
 -   Instancia Healthy:  10.0.4.5
 
+![ECS-Services](images/09-ecs-services.png)
+
 ### 6\. EFS (persistencia)
 
 -   FS:  fs-0e7798ddb9e1bb9f6 --- General Purpose, Throughput Elastic, Backups ON, Encrypted
@@ -176,7 +178,6 @@ docker buildx build --platform linux/amd64 -f db/Dockerfile
 
 -   SG en mounts:  php-sample-mysql-sg
 
-Nota: Best practice: ambos mount targets en subnets privadas y SG propio de EFS (mysql-efs-sg con inbound 2049 desde php-sample-mysql-sg). Se deja documentado el estado actual por cercanía a la entrega.
 
 ### 7\. ALB / HTTPS
 
@@ -187,6 +188,8 @@ Nota: Best practice: ambos mount targets en subnets privadas y SG propio de EFS 
 -   HTTP:80 → Redirect 301 a HTTPS:443
 
 -   HTTPS:443 → Forward a php-frontend-tg --- Policy:  ELBSecurityPolicy-2016-08 --- Cert:  *.ecastelnuovo.ownboarding.teratest.net
+
+![ALB](images/10-alb.png)
 
 ### 8\. TLS / DNS
 
@@ -214,19 +217,6 @@ docker buildx build --platform linux/amd64 -f db/Dockerfile
 
   -t 979244568430.dkr.ecr.us-east-1.amazonaws.com/db-lab2:latest --push .
 
--   Deploy: acción de ECS actualizando el service frontend a la última task definition.
-
-* * * * *
-
-Pruebas de Validación
----------------------
-
--   Balanceo y salud: Target Group php-frontend-tg con 2 targets Healthy (IPs privadas en 1a/1b)
-
--   HTTPS:  HTTP:80 → 301 → HTTPS:443, certificado ACM válido
-
--   ECS Estado:  frontend 2/2 RUNNING, mysql 1/1 RUNNING
-
 * * * * *
 
 Consideraciones de Seguridad
@@ -244,8 +234,6 @@ Monitoreo y Métricas
 -   CloudWatch Logs:  /ecs/frontend-task-lab2, /ecs/mysql-task-dubai
 
 -   ALB:  RequestCount, HTTPCode_Target_2XX, TargetResponseTime
-
--   ECS:  CPUUtilization, MemoryUtilization, RunningTaskCount
 
 Desvíos vs Requisitos
 ---------------------
