@@ -108,7 +108,7 @@ docker buildx build --platform linux/amd64 -f Dockerfile
 docker buildx build --platform linux/amd64 -f db/Dockerfile
 
   -t 979244568430.dkr.ecr.us-east-1.amazonaws.com/db-lab2:latest --push .
-![BuildCommand2](images/07-commandbuild-02.png)
+![BuildCommand2](images/07-commandbuildx-02.png)
 
 ### 4\. ECS --- Task Definitions
 
