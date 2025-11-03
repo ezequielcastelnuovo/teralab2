@@ -15,6 +15,9 @@ Descubrimiento interno: Cloud Map (pepitoDB → mysql-service-dubai)\
 Imágenes: ECR (frontend-lab2, db-lab2)\
 CI/CD: CodePipeline → CodeBuild → Deploy to ECS
 
+![Arquitectura](images/solution-diagram.png)
+![Pipeline](images/pipeline-diagram.png)
+
 Servicios AWS Utilizados
 ------------------------
 
