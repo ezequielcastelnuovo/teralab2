@@ -1,4 +1,4 @@
-FROM php:7.2-apache
+FROM public.ecr.aws/docker/library/php:7.2-apache
 
 COPY . /var/www/html
 COPY ./apache/default-site.conf /etc/apache2/sites-available/default-site.conf
