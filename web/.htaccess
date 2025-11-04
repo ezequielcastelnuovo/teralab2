@@ -1,11 +1,7 @@
 RewriteEngine On
 
-# Excepción total para health (no HTTPS force, no front-controller)
+# Excepción total para health (sin redirect, sin front-controller)
 RewriteRule ^health(\.php|\.txt)?$ - [L]
-
-# Forzar HTTPS para todo lo demás (si lo manejás desde Apache)
-RewriteCond %{HTTPS} !=on
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Front controller típico
 RewriteCond %{REQUEST_FILENAME} !-f
