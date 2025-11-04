@@ -1,6 +1,9 @@
 FROM public.ecr.aws/docker/library/php:7.2-apache
 
 COPY . /var/www/html
+# Healthcheck estático, servido desde el DocumentRoot (/var/www/html/web)
+RUN mkdir -p /var/www/html/web && echo OK > /var/www/html/web/health.txt
+
 COPY ./apache/default-site.conf /etc/apache2/sites-available/default-site.conf
 
 WORKDIR /var/www/html
