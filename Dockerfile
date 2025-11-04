@@ -1,8 +1,7 @@
 FROM public.ecr.aws/docker/library/php:7.2-apache
 
 COPY . /var/www/html
-# Healthcheck estático, servido desde el DocumentRoot (/var/www/html/web)
-RUN mkdir -p /var/www/html/web && echo OK > /var/www/html/web/health.txt
+
 
 COPY ./apache/default-site.conf /etc/apache2/sites-available/default-site.conf
 
@@ -40,5 +39,10 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf &&\
 ##Remove unnecesary files
 RUN rm -r sql/ apache/ &&\
 	rm Dockerfile Makefile README.md
+
+# Crear health en ambas rutas al FINAL (sobrevive a make/limpieza)
+RUN mkdir -p /var/www/html/web \
+ && echo OK > /var/www/html/health.txt \
+ && echo OK > /var/www/html/web/health.txt
 
 EXPOSE 80
